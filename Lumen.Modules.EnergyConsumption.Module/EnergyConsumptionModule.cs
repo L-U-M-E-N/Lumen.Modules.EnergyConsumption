@@ -21,8 +21,6 @@ namespace Lumen.Modules.EnergyConsumption.Module {
 
         public override bool ShouldRunNow(LumenModuleRunsOnFlag currentEnv, DateTime date) {
             return currentEnv switch {
-                LumenModuleRunsOnFlag.UI => date.Second == 0 && date.Minute == 42,
-                LumenModuleRunsOnFlag.API => date.Second == 0 && date.Minute % 5 == 0,
                 _ => false,
             };
         }
