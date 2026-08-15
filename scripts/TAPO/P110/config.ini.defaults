@@ -1,0 +1,6 @@
+[DEFAULT]
+Ips = 192.168.X.X
+Username = username@example.tld
+Password = PUTPASSWORDHERE
+LumenUrl = https://lumen.domain.tld
+LumenApiKey = PUTAPIKEYHERE

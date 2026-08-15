@@ -1,5 +1,5 @@
-﻿using Lumen.Modules.Sdk;
-using Lumen.Modules.EnergyConsumption.Data;
+﻿using Lumen.Modules.EnergyConsumption.Data;
+using Lumen.Modules.Sdk;
 
 using Microsoft.EntityFrameworkCore;
 
