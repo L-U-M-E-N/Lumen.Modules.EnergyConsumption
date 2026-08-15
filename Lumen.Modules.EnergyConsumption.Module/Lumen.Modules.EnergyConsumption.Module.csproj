@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>net10.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<AssemblyVersion>1.0.0</AssemblyVersion>
+		<FileVersion>1.0.0</FileVersion>
+		<Version>1.0.0</Version>
+		<UserSecretsId>12b396a4-a415-424f-99fe-819d74368c2b</UserSecretsId>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Lumen.Modules.Sdk" Version="1.0.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Lumen.Modules.EnergyConsumption.Common\Lumen.Modules.EnergyConsumption.Common.csproj" />
+		<ProjectReference Include="..\Lumen.Modules.EnergyConsumption.Data\Lumen.Modules.EnergyConsumption.Data.csproj" />
+	</ItemGroup>
+</Project>
