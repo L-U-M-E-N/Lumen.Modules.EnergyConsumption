@@ -30,6 +30,9 @@ namespace Lumen.Modules.EnergyConsumption.Module.Controllers {
                 var entry = await context.EnergyConsumption.FirstOrDefaultAsync((x) => x.From == newEntry.From && x.To == newEntry.To && x.Source == newEntry.Source, cancellationToken);
                 if (entry is not null) {
                     logger.LogInformation("{Module} - Entry '{From}' '{To}' '{Source}' already existing, updating", nameof(EnergyConsumptionModule), newEntry.From, newEntry.To, newEntry.Source);
+                    if (newEntry.Value <= entry.Value) {
+                        continue;
+                    }
                     entry.Value = newEntry.Value;
                     continue;
                 }
