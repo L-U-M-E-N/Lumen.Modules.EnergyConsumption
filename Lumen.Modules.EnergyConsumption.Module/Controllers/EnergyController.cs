@@ -29,11 +29,12 @@ namespace Lumen.Modules.EnergyConsumption.Module.Controllers {
             foreach (var newEntry in entries) {
                 var entry = await context.EnergyConsumption.FirstOrDefaultAsync((x) => x.From == newEntry.From && x.To == newEntry.To && x.Source == newEntry.Source, cancellationToken);
                 if (entry is not null) {
-                    logger.LogInformation("{Module} - Entry '{From}' '{To}' '{Source}' already existing, updating", nameof(EnergyConsumptionModule), newEntry.From, newEntry.To, newEntry.Source);
-                    if (newEntry.Value <= entry.Value) {
-                        continue;
-                    }
-                    entry.Value = newEntry.Value;
+                    logger.LogInformation("{Module} - Entry '{From}' '{To}' '{Source}' already existing, skipping", nameof(EnergyConsumptionModule), newEntry.From, newEntry.To, newEntry.Source);
+                    continue;
+                }
+
+                if (newEntry.To >= DateTime.UtcNow.AddHours(-1)) {
+                    logger.LogInformation("{Module} - Entry '{From}' '{To}' '{Source}' is in the future, skipping", nameof(EnergyConsumptionModule), newEntry.From, newEntry.To, newEntry.Source);
                     continue;
                 }
 
